@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	overflow-x: hidden;
+	font-family: "Lora", serif;
+	background: #f6f6ff;
+}
+
+/* Additional styles */
+.header-dropdown {
+	position: relative;
+}
+
+.header-dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #ccc;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+	padding: 12px 16px;
+	border-radius: 4px;
+	transition: all 0.3s ease;
+}
+
+.header-dropdown:hover .header-dropdown-content,
+.header-dropdown-content:hover {
+	display: block;
+}
+
+@media (max-width: 768px) {
+	.menu-open {
+		display: flex !important;
+		flex-direction: column;
+		gap: 10px;
+		background-color: #333;
+		padding: 10px;
+		border-radius: 4px;
+	}
+}
+
+.line::before,
+.line::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	width: 4rem;
+	border-top: 2px solid #d4af37;
+}
+
+.line::before {
+	left: -5.4rem;
+}
+.line::after {
+	right: -5.4rem;
+}
+
+@media (max-width: 1024px) {
+	.line::before,
+	.line::after {
+		width: 3rem;
+	}
+
+	.line::before {
+		left: -3.5rem;
+	}
+	.line::after {
+		right: -3.5rem;
+	}
+}
