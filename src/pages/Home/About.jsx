@@ -2,6 +2,8 @@ import { About1, About2, About3, About4 } from "../../assets";
 import { about } from "../../constants/constant";
 import Info from "../../components/Info";
 
+import { motion } from "framer-motion";
+
 const About = () => {
 	return (
 		<section className="my-16 xs:w-[90%] md:w-[85%] xl:w-4/5 mx-auto py-8 flex items-start justify-between xs:flex-col lg:flex-row gap-8 gap-x-16">
@@ -20,16 +22,21 @@ const About = () => {
 					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni asperiores nesciunt quis obcaecati quae temporibus facere ut quam, voluptates saepe. Voluptatibus ex
 					perspiciatis eos corporis excepturi alias.
 				</p>
-				<div className="flex flex-wrap gap-6 justify-center">
-					{about.map((item) => (
+				<motion.div
+					initial={{ opacity: 0, x: -54 }}
+					whileInView={{ opacity: 1, x: 0 }}
+					transition={{ duration: 0.5 }}
+					className="flex flex-wrap gap-6 justify-center"
+				>
+					{about.map((item, ind) => (
 						<Info
-							key={item.id}
+							key={ind}
 							icon={item.icon}
 							text={item.text}
 							count={item.count}
 						/>
 					))}
-				</div>
+				</motion.div>
 				<div className="mt-8">
 					<button className="uppercase bg-extra hover:bg-dark text-normal hover:text-primary font-bold py-4 px-10 rounded focus:outline-none focus:shadow-outline transition-all duration-300">
 						Explore More
@@ -42,22 +49,22 @@ const About = () => {
 					<img
 						src={About1}
 						alt="About1"
-						className="w-[220px] lg:w-[240px] object-cover justify-self-end self-end"
+						className="w-[220px] lg:w-[240px] object-cover justify-self-end self-end hover:scale-110 transition-transform duration-300 rounded-md"
 					/>
 					<img
 						src={About2}
 						alt="About2"
-						className="xs:w-[240px] lg:w-full object-cover"
+						className="xs:w-[240px] lg:w-full hover:scale-110 transition-transform duration-300 object-cover rounded-md"
 					/>
 					<img
 						src={About3}
 						alt="About3"
-						className="xs:w-[240px] lg:w-full object-cover "
+						className="xs:w-[240px] lg:w-full object-cover rounded-md hover:scale-110 transition-transform duration-300"
 					/>
 					<img
 						src={About4}
 						alt="About4"
-						className="xs:w-[220px] lg:w-[240px] object-cover"
+						className="xs:w-[220px] lg:w-[240px] object-cover rounded-md hover:scale-110 transition-transform duration-300"
 					/>
 				</div>
 			</div>
