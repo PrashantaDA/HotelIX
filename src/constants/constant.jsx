@@ -21,15 +21,11 @@ import {
 import { FaFacebook, FaXTwitter, FaInstagram } from "react-icons/fa6";
 
 import {
-	// About1,
-	// About2,
-	// About3,
-	// About4,
 	Carousel1,
 	Carousel2,
-	// Room1,
-	// Room2,
-	// Room3,
+	Room1,
+	Room2,
+	Room3,
 	Team1,
 	Team2,
 	Team3,
@@ -162,38 +158,38 @@ export const services = [
 	{
 		icon: (
 			<FaHotel
-				size={24}
+				size={32}
 				className="text-primary mb-2"
 			/>
 		),
 		name: "Rooms & Appartment",
-		discription: "Contrary to popular belief, ipsum is not simply random.",
+		desc: "Contrary to popular belief, ipsum is not simply random.",
 	},
 	{
 		icon: (
 			<FaUtensils
-				size={24}
+				size={32}
 				className="text-primary mb-2"
 			/>
 		),
 		name: "Food & Restaurant",
-		discription: "Contrary to popular belief, ipsum is not simply random.",
+		desc: "Contrary to popular belief, ipsum is not simply random.",
 	},
 	{
 		icon: (
 			<FaSpa
-				size={24}
+				size={32}
 				className="text-primary mb-2"
 			/>
 		),
 		name: "Spa & Fitness",
-		discription: "Contrary to popular belief, ipsum is not simply random.",
+		desc: "Contrary to popular belief, ipsum is not simply random.",
 	},
 
 	{
 		icon: (
 			<FaSwimmer
-				size={24}
+				size={32}
 				className="text-primary mb-2"
 			/>
 		),
@@ -203,7 +199,7 @@ export const services = [
 	{
 		icon: (
 			<FaGlassCheers
-				size={24}
+				size={32}
 				className="text-primary mb-2"
 			/>
 		),
@@ -214,7 +210,7 @@ export const services = [
 	{
 		icon: (
 			<FaDumbbell
-				size={24}
+				size={32}
 				className="text-primary mb-2"
 			/>
 		),
@@ -325,7 +321,7 @@ export const contact = [
 ];
 export const testimonial = [
 	{
-		description: "Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos",
+		desc: "Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos",
 		name: "Client Name",
 		profession: "Profession",
 		icon: (
@@ -337,7 +333,7 @@ export const testimonial = [
 		img: Testimonial1,
 	},
 	{
-		description: "Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos",
+		desc: "Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos",
 		name: "Client Name",
 		profession: "Profession",
 		icon: (
@@ -349,7 +345,7 @@ export const testimonial = [
 		img: Testimonial2,
 	},
 	{
-		description: "Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos",
+		desc: "Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos",
 		name: "Client Name",
 		profession: "Profession",
 		icon: (
@@ -364,48 +360,106 @@ export const testimonial = [
 
 export const roomItems = [
 	{
-		img: "../assets/img/room-1.jpg",
+		img: Room1,
 		price: "$110/night",
-		name: "Junior Suit",
+		name: "Junior Suite",
 		star: <FaStar className="text-primary" />,
-		description: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
-		yellowbtn: "View Detail",
-		darkbtn: "book now",
+		desc: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
+		btn1: "View Detail",
+		btn2: "book now",
 	},
 
 	{
-		img: "../assets/img/room-2.jpg",
+		img: Room2,
 		price: "$110/night",
 		name: "Executive Suite",
 		star: <FaStar className="text-primary" />,
-		description: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
-		yellowbtn: "View Detail",
-		darkbtn: "book now",
+		desc: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
+		btn1: "View Detail",
+		btn2: "book now",
 	},
 	{
-		img: "../assets/img/room-3.jpg",
+		img: Room3,
 		price: "$110/night",
-		name: "Super Deluxe",
+		name: "Super Deluxe Suite",
 		star: <FaStar className="text-primary" />,
-		description: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
-		yellowbtn: "View Detail",
-		darkbtn: "book now",
+		desc: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
+		btn1: "View Detail",
+		btn2: "book now",
+	},
+];
+
+export const allRoomItems = [
+	{
+		img: Room1,
+		price: "$110/night",
+		name: "Junior Suite",
+		star: <FaStar className="text-primary" />,
+		desc: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
+		btn1: "View Detail",
+		btn2: "book now",
+	},
+
+	{
+		img: Room2,
+		price: "$110/night",
+		name: "Executive Suite",
+		star: <FaStar className="text-primary" />,
+		desc: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
+		btn1: "View Detail",
+		btn2: "book now",
+	},
+	{
+		img: Room3,
+		price: "$110/night",
+		name: "Deluxe Suite",
+		star: <FaStar className="text-primary" />,
+		desc: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
+		btn1: "View Detail",
+		btn2: "book now",
+	},
+	{
+		img: Room2,
+		price: "$110/night",
+		name: "Premium Executive Suite",
+		star: <FaStar className="text-primary" />,
+		desc: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
+		btn1: "View Detail",
+		btn2: "book now",
+	},
+	{
+		img: Room1,
+		price: "$110/night",
+		name: "Premium Junior Suite",
+		star: <FaStar className="text-primary" />,
+		desc: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
+		btn1: "View Detail",
+		btn2: "book now",
+	},
+	{
+		img: Room3,
+		price: "$110/night",
+		name: "Presidential Suite",
+		star: <FaStar className="text-primary" />,
+		desc: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
+		btn1: "View Detail",
+		btn2: "book now",
 	},
 ];
 
 export const facility = [
 	{
-		icon: <FaBed className="text-primary me-2" />,
+		icon: <FaBed className="text-extra me-2" />,
 		quantity: 3,
 		facility: "bed",
 	},
 	{
-		icon: <FaBath className="text-primary me-2" />,
+		icon: <FaBath className="text-extra me-2" />,
 		quantity: 2,
 		facility: "bath",
 	},
 	{
-		icon: <FaWifi className="text-primary me-2" />,
+		icon: <FaWifi className="text-extra me-2" />,
 		facility: "Wifi",
 	},
 ];
