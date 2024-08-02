@@ -12,7 +12,7 @@ const OurServices = () => {
 				section="Services"
 				color="extra"
 			/>
-			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-16 place-items-center ">
+			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-16 place-items-center">
 				{services.slice(0, 3).map((item, index) => (
 					<ServicesCard
 						key={index}
