@@ -16,7 +16,7 @@ export default {
 				extra: "#00ADB5",
 				dark: "#222831",
 				secondary: "#4a4f67",
-				normal: "#FBFFF4",
+				normal: "#f4f8ff",
 			},
 		},
 	},
