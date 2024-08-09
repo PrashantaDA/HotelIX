@@ -17,14 +17,7 @@ const OurRooms = () => {
 				{roomItems.map((item, index) => (
 					<RoomCard
 						key={index}
-						img={item.img}
-						name={item.name}
-						star={item.star}
-						details={item.details}
-						desc={item.desc}
-						btn1={item.btn1}
-						btn2={item.btn2}
-						price={item.price}
+						{...item}
 					/>
 				))}
 			</div>

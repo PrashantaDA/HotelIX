@@ -16,9 +16,7 @@ const OurServices = () => {
 				{services.slice(0, 3).map((item, index) => (
 					<ServicesCard
 						key={index}
-						icon={item.icon}
-						name={item.name}
-						desc={item.desc}
+						{...item}
 					/>
 				))}
 			</div>
