@@ -6,6 +6,7 @@ import Rooms from "./pages/Rooms.jsx";
 import Services from "./pages/Services.jsx";
 import Contact from "./pages/Contact.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
+import Footer from "./components/Footer.jsx";
 
 const App = () => {
 	return (
@@ -34,6 +35,8 @@ const App = () => {
 					element={<Services />}
 				/>
 			</Routes>
+
+			<Footer />
 		</>
 	);
 };
