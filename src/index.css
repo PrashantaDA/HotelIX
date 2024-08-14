@@ -58,6 +58,10 @@ body {
 	right: -5.4rem;
 }
 
+.ant-breadcrumb-separator {
+	color: #fff !important;
+}
+
 @media (max-width: 1024px) {
 	.line::before,
 	.line::after {
