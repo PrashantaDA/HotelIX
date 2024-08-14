@@ -7,8 +7,12 @@ import About from "./About";
 import OurRooms from "./OurRooms";
 import OurServices from "./OurServices";
 import OurTeam from "./OurTeam";
+import { useEffect } from "react";
 
 const Home = () => {
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 	return (
 		<>
 			<Carousel />

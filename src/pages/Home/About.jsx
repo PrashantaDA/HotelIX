@@ -1,4 +1,5 @@
 import { About1, About2, About3, About4 } from "../../assets";
+import { Link } from "react-router-dom";
 import { about } from "../../constants/constant";
 import Info from "../../components/Info";
 
@@ -39,7 +40,7 @@ const About = () => {
 				</motion.div>
 				<div className="mt-8">
 					<button className="uppercase bg-extra hover:bg-dark text-normal hover:text-primary font-bold py-4 px-10 rounded focus:outline-none focus:shadow-outline transition-all duration-300">
-						Explore More
+						<Link to="/about">Explore More</Link>
 					</button>
 				</div>
 			</div>

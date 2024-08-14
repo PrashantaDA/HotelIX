@@ -381,37 +381,6 @@ export const roomItems = [
 	{
 		img: Room3,
 		price: "$110/night",
-		name: "Super Deluxe Suite",
-		star: <FaStar className="text-primary" />,
-		desc: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
-		btn1: "View Detail",
-		btn2: "book now",
-	},
-];
-
-export const allRoomItems = [
-	{
-		img: Room1,
-		price: "$110/night",
-		name: "Junior Suite",
-		star: <FaStar className="text-primary" />,
-		desc: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
-		btn1: "View Detail",
-		btn2: "book now",
-	},
-
-	{
-		img: Room2,
-		price: "$110/night",
-		name: "Executive Suite",
-		star: <FaStar className="text-primary" />,
-		desc: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
-		btn1: "View Detail",
-		btn2: "book now",
-	},
-	{
-		img: Room3,
-		price: "$110/night",
 		name: "Deluxe Suite",
 		star: <FaStar className="text-primary" />,
 		desc: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
@@ -421,7 +390,7 @@ export const allRoomItems = [
 	{
 		img: Room2,
 		price: "$110/night",
-		name: "Premium Executive Suite",
+		name: "Premium Suite",
 		star: <FaStar className="text-primary" />,
 		desc: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
 		btn1: "View Detail",
