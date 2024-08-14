@@ -11,7 +11,6 @@ import {
 	FaPhoneAlt,
 	FaEnvelope,
 	FaEnvelopeOpen,
-	FaQuoteRight,
 	FaStar,
 	FaBed,
 	FaBath,
@@ -20,21 +19,7 @@ import {
 
 import { FaFacebook, FaXTwitter, FaInstagram } from "react-icons/fa6";
 
-import {
-	Carousel1,
-	Carousel2,
-	Room1,
-	Room2,
-	Room3,
-	Team1,
-	Team2,
-	Team3,
-	Team4,
-	Testimonial1,
-	Testimonial2,
-	Testimonial3,
-	// Testimonial4,
-} from "../assets/index.js";
+import { Carousel1, Carousel2, Room1, Room2, Room3, Team1, Team2, Team3, Team4 } from "../assets/index.js";
 
 export const navList = [
 	{
@@ -71,11 +56,6 @@ export const navList = [
 				id: 52,
 				path: "/team",
 				name: "Our Team",
-			},
-			{
-				id: 53,
-				path: "/testimonial",
-				name: "Testimonial",
 			},
 		],
 	},
@@ -319,44 +299,44 @@ export const contact = [
 		email: "info@example.com",
 	},
 ];
-export const testimonial = [
-	{
-		desc: "Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos",
-		name: "Client Name",
-		profession: "Profession",
-		icon: (
-			<FaQuoteRight
-				className="text-primary position-absolute end-0 bottom-0 me-4 mb-n1"
-				size={24}
-			/>
-		),
-		img: Testimonial1,
-	},
-	{
-		desc: "Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos",
-		name: "Client Name",
-		profession: "Profession",
-		icon: (
-			<FaQuoteRight
-				className="text-primary position-absolute end-0 bottom-0 me-4 mb-n1"
-				size={24}
-			/>
-		),
-		img: Testimonial2,
-	},
-	{
-		desc: "Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos",
-		name: "Client Name",
-		profession: "Profession",
-		icon: (
-			<FaQuoteRight
-				className="text-primary position-absolute end-0 bottom-0 me-4 mb-n1"
-				size={24}
-			/>
-		),
-		img: Testimonial3,
-	},
-];
+// export const testimonial = [
+// 	{
+// 		desc: "Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos",
+// 		name: "Client Name",
+// 		profession: "Profession",
+// 		icon: (
+// 			<FaQuoteRight
+// 				className="text-primary position-absolute end-0 bottom-0 me-4 mb-n1"
+// 				size={24}
+// 			/>
+// 		),
+// 		img: Testimonial1,
+// 	},
+// 	{
+// 		desc: "Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos",
+// 		name: "Client Name",
+// 		profession: "Profession",
+// 		icon: (
+// 			<FaQuoteRight
+// 				className="text-primary position-absolute end-0 bottom-0 me-4 mb-n1"
+// 				size={24}
+// 			/>
+// 		),
+// 		img: Testimonial2,
+// 	},
+// 	{
+// 		desc: "Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos",
+// 		name: "Client Name",
+// 		profession: "Profession",
+// 		icon: (
+// 			<FaQuoteRight
+// 				className="text-primary position-absolute end-0 bottom-0 me-4 mb-n1"
+// 				size={24}
+// 			/>
+// 		),
+// 		img: Testimonial3,
+// 	},
+// ];
 
 export const roomItems = [
 	{
