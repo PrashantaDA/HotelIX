@@ -32,6 +32,11 @@ body {
 	display: block;
 }
 
+.contact-bg {
+	background: url("./assets/img/carousel-2.jpg") no-repeat center center;
+	background-size: cover;
+}
+
 @media (max-width: 768px) {
 	.menu-open {
 		display: flex !important;

@@ -217,6 +217,16 @@ export const team = [
 	},
 	{
 		image: Team4,
+		name: "Jane Doe",
+		designation: "Manager",
+	},
+	{
+		image: Team1,
+		name: "Jane Doe2",
+		designation: "A. Manager",
+	},
+	{
+		image: Team2,
 		name: "Jane Doe2",
 		designation: "A. Manager",
 	},

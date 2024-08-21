@@ -8,12 +8,14 @@ import Contact from "./pages/Contact.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
 import Error from "./pages/Error.jsx";
 import Footer from "./components/Footer.jsx";
+import Booking from "./pages/Booking.jsx";
+import Team from "./pages/Team.jsx";
 
 const App = () => {
 	const location = useLocation();
 
 	// List of routes where Header and Footer should be displayed
-	const headerFooterRoutes = ["/", "/about", "/contact", "/rooms", "/services"];
+	const headerFooterRoutes = ["/", "/about", "/contact", "/rooms", "/services", "/booking", "/team", "/contact"];
 
 	// Check if the current route is one of the headerFooterRoutes
 	const showHeaderFooter = headerFooterRoutes.includes(location.pathname);
@@ -42,6 +44,14 @@ const App = () => {
 				<Route
 					path="/services"
 					element={<Services />}
+				/>
+				<Route
+					path="/team"
+					element={<Team />}
+				/>
+				<Route
+					path="/booking"
+					element={<Booking />}
 				/>
 				<Route
 					path="*"
