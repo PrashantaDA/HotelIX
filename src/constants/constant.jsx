@@ -174,7 +174,7 @@ export const services = [
 			/>
 		),
 		name: "Sports & Gaming",
-		discription: "Contrary to popular belief, ipsum is not simply random.",
+		desc: "Contrary to popular belief, ipsum is not simply random.",
 	},
 	{
 		icon: (
@@ -184,7 +184,7 @@ export const services = [
 			/>
 		),
 		name: "Event & Party",
-		discription: "Contrary to popular belief, ipsum is not simply random.",
+		desc: "Contrary to popular belief, ipsum is not simply random.",
 	},
 
 	{
@@ -195,7 +195,7 @@ export const services = [
 			/>
 		),
 		name: "GYM & Yoga",
-		discription: "Contrary to popular belief, ipsum is not simply random.",
+		desc: "Contrary to popular belief, ipsum is not simply random.",
 	},
 ];
 
