@@ -1,11 +1,14 @@
 import { About1, About2, About3, About4 } from "../../assets";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { about } from "../../constants/constant";
 import Info from "../../components/Info";
 
 import { motion } from "framer-motion";
 
 const About = () => {
+	const location = useLocation();
+	const isAboutPage = location.pathname === "/about";
+
 	return (
 		<section className="my-16 xs:w-[90%] md:w-[85%] xl:w-4/5 mx-auto py-8 flex items-start justify-between xs:flex-col lg:flex-row gap-8 gap-x-16">
 			{/* Left */}
@@ -38,11 +41,13 @@ const About = () => {
 						/>
 					))}
 				</motion.div>
-				<div className="mt-8">
-					<button className="uppercase bg-extra hover:bg-dark text-normal hover:text-primary font-bold py-4 px-10 rounded focus:outline-none focus:shadow-outline transition-all duration-300">
-						<Link to="/about">Explore More</Link>
-					</button>
-				</div>
+				{!isAboutPage && (
+					<div className="mt-8">
+						<button className="uppercase bg-extra hover:bg-dark text-normal hover:text-primary font-bold py-4 px-10 rounded focus:outline-none focus:shadow-outline transition-all duration-300">
+							<Link to="/about">Explore More</Link>
+						</button>
+					</div>
+				)}
 			</div>
 			{/* RIght */}
 			<div className="flex-1 xs:place-self-center lg:place-self-auto mt-20">
