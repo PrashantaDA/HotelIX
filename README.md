@@ -1,8 +1,39 @@
-# React + Vite
+# HotelX - Luxury Hotel Booking Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web application for hotel bookings and management built with React and Vite.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Responsive design for all devices
+- Room booking system
+- Service information
+- Team showcase
+- Contact management
+- About us section
+
+## Tech Stack
+
+- React
+- Vite
+- Tailwind CSS
+- React Router
+
+## Getting Started
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## Build
+
+To create a production build:
+
+```bash
+npm run build
+```

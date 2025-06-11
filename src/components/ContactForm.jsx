@@ -1,13 +1,16 @@
-// ContactForm.js
 import { useState } from "react";
+import { FaPaperPlane } from "react-icons/fa";
 
 const ContactForm = () => {
 	const [formData, setFormData] = useState({
 		name: "",
 		email: "",
+		subject: "",
 		message: "",
 	});
 	const [errors, setErrors] = useState({});
+	const [isSubmitting, setIsSubmitting] = useState(false);
+	const [submitSuccess, setSubmitSuccess] = useState(false);
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -15,95 +18,166 @@ const ContactForm = () => {
 			...formData,
 			[name]: value,
 		});
+		// Clear error when user starts typing
+		if (errors[name]) {
+			setErrors({
+				...errors,
+				[name]: "",
+			});
+		}
 	};
 
 	const validate = () => {
 		const newErrors = {};
-		if (!formData.name) newErrors.name = "Name is required";
-		if (!formData.email) newErrors.email = "Email is required";
+		if (!formData.name.trim()) newErrors.name = "Name is required";
+		if (!formData.email.trim()) newErrors.email = "Email is required";
 		else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = "Email is invalid";
-		if (!formData.message) newErrors.message = "Message is required";
+		if (!formData.subject.trim()) newErrors.subject = "Subject is required";
+		if (!formData.message.trim()) newErrors.message = "Message is required";
 		setErrors(newErrors);
 		return Object.keys(newErrors).length === 0;
 	};
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (validate()) {
-			// Handle form submission (e.g., send data to an API)
-			console.log("Form data submitted:", formData);
-			// Clear form
-			setFormData({ name: "", email: "", message: "" });
-			setErrors({});
+			setIsSubmitting(true);
+			try {
+				// Simulate API call
+				await new Promise((resolve) => setTimeout(resolve, 1000));
+				console.log("Form data submitted:", formData);
+				setSubmitSuccess(true);
+				setFormData({ name: "", email: "", subject: "", message: "" });
+				setErrors({});
+				// Reset success message after 5 seconds
+				setTimeout(() => setSubmitSuccess(false), 5000);
+			} catch (error) {
+				console.error("Error submitting form:", error);
+			} finally {
+				setIsSubmitting(false);
+			}
 		}
 	};
 
 	return (
-		<div className="max-w-xl mx-auto p-4 bg-dark text-extra border border-gray-200 rounded-lg shadow-md">
-			<h2 className="text-2xl font-bold mb-4">Contact Us</h2>
-			<form onSubmit={handleSubmit}>
-				<div className="mb-4">
-					<label
-						htmlFor="name"
-						className="block text-sm font-medium text-normal"
-					>
-						Name
-					</label>
-					<input
-						type="text"
-						id="name"
-						name="name"
-						value={formData.name}
-						onChange={handleChange}
-						placeholder="Your Name"
-						autoComplete="off"
-						className={`mt-1 block w-full p-2 border rounded-md ${errors.name ? "border-red-500" : "border-gray-300"}`}
-					/>
-					{errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
+		<div className="card bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-xl">
+			{submitSuccess ? (
+				<div className="text-center py-8">
+					<div className="text-green-500 text-5xl mb-4">✓</div>
+					<h3 className="text-2xl font-semibold text-primary mb-2">Message Sent!</h3>
+					<p className="text-gray-600">Thank you for contacting us. We&apos;ll get back to you soon.</p>
 				</div>
-				<div className="mb-4">
-					<label
-						htmlFor="email"
-						className="block text-sm font-medium text-normal"
-					>
-						Email
-					</label>
-					<input
-						type="email"
-						id="email"
-						name="email"
-						value={formData.email}
-						onChange={handleChange}
-						placeholder="Your Email"
-						autoComplete="off"
-						className={`mt-1 block w-full p-2 border rounded-md ${errors.email ? "border-red-500" : "border-gray-300"}`}
-					/>
-					{errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
-				</div>
-				<div className="mb-4">
-					<label
-						htmlFor="message"
-						className="block text-sm font-medium text-normal"
-					>
-						Message
-					</label>
-					<textarea
-						id="message"
-						name="message"
-						rows="4"
-						value={formData.message}
-						onChange={handleChange}
-						className={`mt-1 block w-full p-2 border rounded-md ${errors.message ? "border-red-500" : "border-gray-300"}`}
-					/>
-					{errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
-				</div>
-				<button
-					type="submit"
-					className="w-full py-2 px-4 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-600"
+			) : (
+				<form
+					onSubmit={handleSubmit}
+					className="space-y-6"
 				>
-					Send Message
-				</button>
-			</form>
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+						<div>
+							<label
+								htmlFor="name"
+								className="block text-sm font-medium text-gray-700 mb-1"
+							>
+								Your Name
+							</label>
+							<input
+								type="text"
+								id="name"
+								name="name"
+								value={formData.name}
+								onChange={handleChange}
+								placeholder="John Doe"
+								className={`w-full px-4 py-2 rounded-lg border ${
+									errors.name ? "border-red-500" : "border-gray-300"
+								} focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200`}
+							/>
+							{errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
+						</div>
+						<div>
+							<label
+								htmlFor="email"
+								className="block text-sm font-medium text-gray-700 mb-1"
+							>
+								Your Email
+							</label>
+							<input
+								type="email"
+								id="email"
+								name="email"
+								value={formData.email}
+								onChange={handleChange}
+								placeholder="john@example.com"
+								className={`w-full px-4 py-2 rounded-lg border ${
+									errors.email ? "border-red-500" : "border-gray-300"
+								} focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200`}
+							/>
+							{errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
+						</div>
+					</div>
+
+					<div>
+						<label
+							htmlFor="subject"
+							className="block text-sm font-medium text-gray-700 mb-1"
+						>
+							Subject
+						</label>
+						<input
+							type="text"
+							id="subject"
+							name="subject"
+							value={formData.subject}
+							onChange={handleChange}
+							placeholder="How can we help you?"
+							className={`w-full px-4 py-2 rounded-lg border ${
+								errors.subject ? "border-red-500" : "border-gray-300"
+							} focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200`}
+						/>
+						{errors.subject && <p className="mt-1 text-sm text-red-600">{errors.subject}</p>}
+					</div>
+
+					<div>
+						<label
+							htmlFor="message"
+							className="block text-sm font-medium text-gray-700 mb-1"
+						>
+							Your Message
+						</label>
+						<textarea
+							id="message"
+							name="message"
+							rows="5"
+							value={formData.message}
+							onChange={handleChange}
+							placeholder="Write your message here..."
+							className={`w-full px-4 py-2 rounded-lg border ${
+								errors.message ? "border-red-500" : "border-gray-300"
+							} focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 resize-none`}
+						/>
+						{errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
+					</div>
+
+					<button
+						type="submit"
+						disabled={isSubmitting}
+						className={`w-full py-3 px-6 rounded-lg bg-primary text-white font-semibold 
+							flex items-center justify-center gap-2 transition-all duration-200
+							${isSubmitting ? "opacity-70 cursor-not-allowed" : "hover:bg-primary/90 hover:shadow-lg"}`}
+					>
+						{isSubmitting ? (
+							<>
+								<div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+								Sending...
+							</>
+						) : (
+							<>
+								<FaPaperPlane />
+								Send Message
+							</>
+						)}
+					</button>
+				</form>
+			)}
 		</div>
 	);
 };
