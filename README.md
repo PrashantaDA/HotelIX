@@ -1,4 +1,4 @@
-# HotelX - Luxury Hotel Booking Platform
+# HotelX - Luxury Hotel Landing Page
 
 A modern web application for hotel bookings and management built with React and Vite.
 
