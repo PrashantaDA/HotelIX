@@ -1,82 +1,45 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { navList } from "../constants/constant";
+import { Link, useLocation } from "react-router-dom";
+import { navList, siteName } from "../constants/constant";
 import SocialIcons from "./SocialIcons";
 
-import { FaCaretDown, FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
+
+const linkClass = "block py-2 px-3 rounded-lg transition-colors";
+const linkActive = "text-primary bg-white/5";
+const linkIdle = "text-normal/90 hover:text-primary";
 
 const Header = () => {
-	const [activeDropdown, setActiveDropdown] = useState(null);
 	const [menuOpen, setMenuOpen] = useState(false);
+	const { pathname } = useLocation();
 
-	const handleMouseEnter = (itemId) => {
-		setActiveDropdown(itemId);
-	};
+	const toggleMenu = () => setMenuOpen((o) => !o);
 
-	const handleMouseLeave = () => {
-		setActiveDropdown(null);
-	};
-
-	const toggleMenu = () => {
-		setMenuOpen(!menuOpen);
-	};
+	const isActive = (path) => path === "/" ? pathname === "/" : pathname.startsWith(path);
 
 	return (
-		<header className=" bg-dark">
-			<div className="xs:w-[90%] md:w-[85%] xl:w-4/5 mx-auto gap-x-8 flex justify-between px-2 py-4 items-center relative">
+		<header className="sticky top-0 z-50 bg-dark/95 backdrop-blur-md border-b border-white/10 shadow-soft">
+			<div className="xs:w-[90%] md:w-[85%] xl:w-4/5 mx-auto gap-x-6 flex justify-between px-2 py-4 items-center">
 				<div>
-					<h1 className="uppercase text-4xl font-semibold tracking-wider text-primary  ">
+					<h1 className="font-display uppercase text-3xl md:text-4xl font-semibold tracking-wide text-primary">
 						<Link
 							to="/"
-							className="hover:text-normal transition-all"
+							className="hover:text-primary-muted transition-colors"
 						>
-							HoteliX
+							{siteName}
 						</Link>
 					</h1>
 				</div>
 
-				{/* Nav list */}
-
-				<ul className="uppercase text-normal gap-8 items-center text-md relative xs:hidden lg:flex ">
+				<ul className="uppercase gap-4 xl:gap-6 items-center text-xs xl:text-sm font-medium tracking-wide xs:hidden lg:flex flex-wrap justify-end">
 					{navList.map((item) => (
-						<li
-							className="hover:text-primary transition-all cursor-pointer relative header-dropdown"
-							key={item.id}
-							onMouseEnter={() => handleMouseEnter(item.id)}
-							onMouseLeave={handleMouseLeave}
-						>
-							{item.subItems ? (
-								<>
-									<Link
-										to="#"
-										className="flex items-center gap-1 "
-									>
-										{item.name} <FaCaretDown />
-									</Link>
-									<div
-										className={`header-dropdown-content ${activeDropdown === item.id ? "block" : "hidden"}`}
-										onMouseEnter={() => handleMouseEnter(item.id)}
-										onMouseLeave={handleMouseLeave}
-									>
-										{item.subItems.map((subItem) => (
-											<Link
-												className="block w-full text-dark hover:bg-gray-800 hover:text-primary p-2 rounded"
-												to={subItem.path}
-												key={subItem.id}
-											>
-												{subItem.name}
-											</Link>
-										))}
-									</div>
-								</>
-							) : (
-								<Link
-									className="flex items-center gap-1"
-									to={item.path}
-								>
-									{item.name}
-								</Link>
-							)}
+						<li key={item.id}>
+							<Link
+								to={item.path}
+								className={`${linkClass} ${isActive(item.path) ? linkActive : linkIdle}`}
+							>
+								{item.name}
+							</Link>
 						</li>
 					))}
 				</ul>
@@ -84,69 +47,39 @@ const Header = () => {
 					<SocialIcons />
 				</div>
 
-				{/* Mobile menu  */}
-				<div className="xs:flex lg:hidden ">
+				<div className="flex lg:hidden">
 					{menuOpen ? (
-						<>
-							<FaTimes
-								className="text-primary text-3xl cursor-pointer hover:rotate-180 transition-all"
-								onClick={toggleMenu}
-							/>
-						</>
+						<FaTimes
+							className="text-primary text-3xl cursor-pointer hover:opacity-80 transition-opacity"
+							onClick={toggleMenu}
+							aria-label="Close menu"
+						/>
 					) : (
 						<FaBars
-							className="text-primary text-3xl cursor-pointer hover:rotate-180 transition-all"
+							className="text-primary text-3xl cursor-pointer hover:opacity-80 transition-opacity"
 							onClick={toggleMenu}
+							aria-label="Open menu"
 						/>
 					)}
 				</div>
 			</div>
 			{menuOpen && (
-				<div className="xs:flex lg:hidden w-full bg-secondary absolute top-14 left-0 z-10 ">
-					<ul className="uppercase font-[500] text-primary flex flex-col gap-8 py-6 items-center text-lg relative justify-center mx-auto">
+				<div className="lg:hidden w-full bg-dark-elevated border-t border-white/10 shadow-card">
+					<ul className="uppercase font-medium flex flex-col gap-1 py-4 px-4 max-w-md mx-auto">
 						{navList.map((item) => (
-							<li
-								className="hover:text-normal transition-all cursor-pointer relative header-dropdown"
-								key={item.id}
-								onMouseEnter={() => handleMouseEnter(item.id)}
-								onMouseLeave={handleMouseLeave}
-								onClick={toggleMenu}
-							>
-								{item.subItems ? (
-									<>
-										<Link
-											to="#"
-											className="flex items-center gap-1"
-										>
-											{item.name} <FaCaretDown />
-										</Link>
-										<div
-											className={`header-dropdown-content ${activeDropdown === item.id ? "show" : ""}`}
-											onMouseEnter={() => handleMouseEnter(item.id)}
-											onMouseLeave={handleMouseLeave}
-										>
-											{item.subItems.map((subItem) => (
-												<Link
-													className="block text-dark hover:bg-gray-800 hover:text-primary p-2 rounded"
-													to={subItem.path}
-													key={subItem.id}
-												>
-													{subItem.name}
-												</Link>
-											))}
-										</div>
-									</>
-								) : (
-									<Link
-										className="flex items-center gap-1"
-										to={item.path}
-									>
-										{item.name}
-									</Link>
-								)}
+							<li key={item.id}>
+								<Link
+									to={item.path}
+									className={`${linkClass} text-center ${isActive(item.path) ? linkActive : "text-normal/90 hover:text-primary"}`}
+									onClick={toggleMenu}
+								>
+									{item.name}
+								</Link>
 							</li>
 						))}
-						<SocialIcons />
+						<li className="pt-4 mt-2 border-t border-white/10 flex justify-center">
+							<SocialIcons />
+						</li>
 					</ul>
 				</div>
 			)}

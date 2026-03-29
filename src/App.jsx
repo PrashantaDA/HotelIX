@@ -10,14 +10,13 @@ import Error from "./pages/Error.jsx";
 import Footer from "./components/Footer.jsx";
 import Booking from "./pages/Booking.jsx";
 import Team from "./pages/Team.jsx";
+import Privacy from "./pages/Privacy.jsx";
+import Terms from "./pages/Terms.jsx";
+
+const headerFooterRoutes = ["/", "/about", "/contact", "/rooms", "/services", "/booking", "/team", "/privacy", "/terms"];
 
 const App = () => {
 	const location = useLocation();
-
-	// List of routes where Header and Footer should be displayed
-	const headerFooterRoutes = ["/", "/about", "/contact", "/rooms", "/services", "/booking", "/team", "/contact"];
-
-	// Check if the current route is one of the headerFooterRoutes
 	const showHeaderFooter = headerFooterRoutes.includes(location.pathname);
 
 	return (
@@ -52,6 +51,14 @@ const App = () => {
 				<Route
 					path="/booking"
 					element={<Booking />}
+				/>
+				<Route
+					path="/privacy"
+					element={<Privacy />}
+				/>
+				<Route
+					path="/terms"
+					element={<Terms />}
 				/>
 				<Route
 					path="*"

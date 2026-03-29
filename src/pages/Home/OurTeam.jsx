@@ -4,7 +4,7 @@ import TeamCard from "../../components/TeamCard";
 
 const OurTeam = () => {
 	return (
-		<section className="xs:w-[90%] md:w-[85%] xl:w-4/5 mx-auto my-20">
+		<section className="xs:w-[90%] md:w-[85%] xl:w-4/5 mx-auto my-20 py-12 rounded-3xl bg-surface/80 border border-slate-200/60">
 			<SectionHeader
 				title="Our Team"
 				subtitle="Our Leadership"

@@ -5,8 +5,8 @@ const Booking = () => {
 	return (
 		<>
 			<PageHeader title="Booking" />
-			<div className="flex items-center justify-center my-10">
-				<BookingDetails />
+			<div className="flex items-center justify-center my-10 md:my-14 px-4 w-full">
+				<BookingDetails overlapCarousel={false} />
 			</div>
 		</>
 	);

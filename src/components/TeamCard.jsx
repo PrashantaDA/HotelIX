@@ -2,19 +2,20 @@
 
 const TeamCard = ({ name, designation, image }) => {
 	return (
-		<div className="flex flex-col items-center justify-center bg-white p-4 shadow-lg">
-			<div className="relative">
+		<article className="flex flex-col items-center w-full max-w-sm mx-auto bg-white rounded-2xl overflow-hidden shadow-card border border-slate-100/80 hover:shadow-lg transition-all duration-300 group">
+			<div className="relative w-full aspect-[4/5] overflow-hidden">
 				<img
 					src={image}
-					alt="team"
-					className="w-full object-cover"
+					alt={name}
+					className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
 				/>
+				<div className="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 			</div>
-			<div className="flex flex-col items-center justify-center mt-8 ">
-				<h3 className="text-2xl font-semibold">{name}</h3>
-				<p className="text-lg text-secondary">{designation}</p>
+			<div className="flex flex-col items-center py-6 px-4 w-full">
+				<h3 className="font-display text-xl font-semibold text-dark">{name}</h3>
+				<p className="text-sm font-medium text-extra mt-1">{designation}</p>
 			</div>
-		</div>
+		</article>
 	);
 };
 

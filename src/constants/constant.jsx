@@ -10,97 +10,63 @@ import {
 	FaMapMarkerAlt,
 	FaPhoneAlt,
 	FaEnvelope,
-	FaEnvelopeOpen,
 	FaStar,
 	FaBed,
 	FaBath,
 	FaWifi,
+	FaPhone,
+	FaClock,
 } from "react-icons/fa";
 
 import { FaFacebook, FaXTwitter, FaInstagram } from "react-icons/fa6";
 
 import { Carousel1, Carousel2, Room1, Room2, Room3, Team1, Team2, Team3, Team4 } from "../assets/index.js";
 
+/** Brand — used across header, footer, and copy */
+export const siteName = "HoteliX";
+export const siteTagline = "Boutique comfort in the heart of Kathmandu.";
+
+export const aboutIntro =
+	"HoteliX is an independent boutique hotel built around calm spaces, attentive hosts, and honest hospitality. Whether you are here for the old city, the mountains, or a quiet place to work, we keep things simple: rest well, eat well, and feel at home.";
+
+/** Top navigation — flat list for static hosting and predictable routing */
 export const navList = [
-	{
-		id: 1,
-		path: "/",
-		name: "Home",
-	},
-	{
-		id: 2,
-		path: "/about",
-		name: "About",
-	},
-	{
-		id: 3,
-		path: "/services",
-		name: "Services",
-	},
-	{
-		id: 4,
-		path: "/rooms",
-		name: "Rooms",
-	},
-	{
-		id: 5,
-		path: "/page",
-		name: "Page",
-		subItems: [
-			{
-				id: 51,
-				path: "/booking",
-				name: "Booking",
-			},
-			{
-				id: 52,
-				path: "/team",
-				name: "Our Team",
-			},
-		],
-	},
-	{
-		id: 6,
-		path: "/contact",
-		name: "Contact",
-	},
+	{ id: 1, path: "/", name: "Home" },
+	{ id: 2, path: "/about", name: "About" },
+	{ id: 3, path: "/services", name: "Services" },
+	{ id: 4, path: "/rooms", name: "Rooms" },
+	{ id: 5, path: "/booking", name: "Booking" },
+	{ id: 6, path: "/team", name: "Team" },
+	{ id: 7, path: "/contact", name: "Contact" },
 ];
 
 export const socialIcons = [
-	{
-		id: 1,
-		icon: <FaFacebook />,
-	},
-	{
-		id: 2,
-		icon: <FaXTwitter />,
-	},
-	{
-		id: 3,
-		icon: <FaInstagram />,
-	},
+	{ id: 1, href: "https://facebook.com/", icon: <FaFacebook /> },
+	{ id: 2, href: "https://twitter.com/", icon: <FaXTwitter /> },
+	{ id: 3, href: "https://instagram.com/", icon: <FaInstagram /> },
 ];
 
 export const carouselData = [
 	{
 		id: 1,
 		img: Carousel1,
-		title1: `Discover Your Perfect Retreat`,
-		title2: `Immerse Yourself in Luxury`,
-		subtitle: "luxury living",
-		btn1: "Our Room",
-		btn2: "Book Room",
+		title1: "Your Quiet Corner in the City",
+		title2: "Warmth, Light, and Himalayan Ease",
+		subtitle: "HoteliX Kathmandu",
+		btn1: "Our Rooms",
+		btn2: "Book a Stay",
 	},
 	{
 		id: 2,
 		img: Carousel2,
-		title1: `Discover Exquisite Accommodations`,
-		title2: `Experience Unparalleled Luxury`,
-		subtitle: "luxury living",
-		btn1: "Our Room",
-		btn2: "Book Room",
+		title1: "Rooms Made for Deep Sleep",
+		title2: "Courtyard Views & City Rooftops",
+		subtitle: "Stay with us",
+		btn1: "Our Rooms",
+		btn2: "Book a Stay",
 	},
 ];
+
 export const about = [
 	{
 		icon: (
@@ -109,8 +75,8 @@ export const about = [
 				className="text-primary mb-2"
 			/>
 		),
-		text: "Rooms",
-		count: "8520",
+		text: "Guest rooms",
+		count: "48",
 	},
 	{
 		icon: (
@@ -119,8 +85,8 @@ export const about = [
 				className="text-primary mb-2"
 			/>
 		),
-		text: "Staffs",
-		count: "2386",
+		text: "Team members",
+		count: "32",
 	},
 	{
 		icon: (
@@ -129,8 +95,8 @@ export const about = [
 				className="text-primary mb-2"
 			/>
 		),
-		text: "Clients",
-		count: "4666",
+		text: "Returning guests (’26)",
+		count: "1.2k",
 	},
 ];
 
@@ -142,8 +108,8 @@ export const services = [
 				className="text-primary mb-2"
 			/>
 		),
-		name: "Rooms & Appartment",
-		desc: "Contrary to popular belief, ipsum is not simply random.",
+		name: "Rooms & apartments",
+		desc: "Sound-soft floors, rainfall showers, and blackout drapes as standard in every category.",
 	},
 	{
 		icon: (
@@ -152,8 +118,8 @@ export const services = [
 				className="text-primary mb-2"
 			/>
 		),
-		name: "Food & Restaurant",
-		desc: "Contrary to popular belief, ipsum is not simply random.",
+		name: "Restaurant & bar",
+		desc: "Morning coffee, Nepali thali, and a small wine list—served on the terrace when weather allows.",
 	},
 	{
 		icon: (
@@ -162,10 +128,9 @@ export const services = [
 				className="text-primary mb-2"
 			/>
 		),
-		name: "Spa & Fitness",
-		desc: "Contrary to popular belief, ipsum is not simply random.",
+		name: "Spa & wellness",
+		desc: "Massage by appointment, steam, and a calm room for stretching after long flights.",
 	},
-
 	{
 		icon: (
 			<FaSwimmer
@@ -173,8 +138,8 @@ export const services = [
 				className="text-primary mb-2"
 			/>
 		),
-		name: "Sports & Gaming",
-		desc: "Contrary to popular belief, ipsum is not simply random.",
+		name: "Pool & terrace",
+		desc: "A lap-friendly pool and loungers with shade—open early for swimmers and late for stargazing.",
 	},
 	{
 		icon: (
@@ -183,10 +148,9 @@ export const services = [
 				className="text-primary mb-2"
 			/>
 		),
-		name: "Event & Party",
-		desc: "Contrary to popular belief, ipsum is not simply random.",
+		name: "Events & gatherings",
+		desc: "Intimate receptions and small meetings with AV support and catering from our kitchen.",
 	},
-
 	{
 		icon: (
 			<FaDumbbell
@@ -194,231 +158,166 @@ export const services = [
 				className="text-primary mb-2"
 			/>
 		),
-		name: "GYM & Yoga",
-		desc: "Contrary to popular belief, ipsum is not simply random.",
+		name: "Gym & yoga",
+		desc: "Cardio, free weights, and weekly yoga slots—towels and water provided.",
 	},
 ];
 
 export const team = [
-	{
-		image: Team1,
-		name: "John Doe",
-		designation: "Manager",
-	},
-	{
-		image: Team2,
-		name: "John Doe2",
-		designation: "A. Manager",
-	},
-	{
-		image: Team3,
-		name: "Jane Doe",
-		designation: "Manager",
-	},
-	{
-		image: Team4,
-		name: "Jane Doe",
-		designation: "Manager",
-	},
-	{
-		image: Team1,
-		name: "Jane Doe2",
-		designation: "A. Manager",
-	},
-	{
-		image: Team2,
-		name: "Jane Doe2",
-		designation: "A. Manager",
-	},
+	{ image: Team1, name: "Anita Shrestha", designation: "General Manager" },
+	{ image: Team2, name: "Ravi Thapa", designation: "Front Office Manager" },
+	{ image: Team3, name: "Sita Gurung", designation: "Head Chef" },
+	{ image: Team4, name: "Nirajan KC", designation: "Guest Experience" },
+	{ image: Team1, name: "Maya Pradhan", designation: "Housekeeping Lead" },
+	{ image: Team2, name: "Binod Maharjan", designation: "Engineering" },
 ];
 
-export const footerItem = [
+export const footerColumns = [
 	{
 		id: 1,
-		header: "Company",
-		UnitItem: [
-			{
-				name: "About Us",
-			},
-			{
-				name: "Contact Us",
-			},
-			{
-				name: "Privacy Policy",
-			},
-			{
-				name: "Terms & Condition",
-			},
-			{
-				name: "Support",
-			},
+		header: "Explore",
+		links: [
+			{ label: "About", to: "/about" },
+			{ label: "Rooms", to: "/rooms" },
+			{ label: "Services", to: "/services" },
+			{ label: "Booking", to: "/booking" },
 		],
 	},
 	{
 		id: 2,
-		header: "Services",
-		UnitItem: [
-			{
-				name: "Food & Restaurant",
-			},
-			{
-				name: "Spa & Fitness",
-			},
-			{
-				name: "Sports & Gaming",
-			},
-			{
-				name: "Event & Party",
-			},
-			{
-				name: "GYM & Yoga",
-			},
+		header: "Visit",
+		links: [
+			{ label: "Our team", to: "/team" },
+			{ label: "Contact", to: "/contact" },
+			{ label: "Privacy", to: "/privacy" },
+			{ label: "Terms", to: "/terms" },
 		],
 	},
 ];
 
 export const footerContact = [
 	{
-		icon: <FaMapMarkerAlt className="me-3" />,
-		name: "123 Street, New York, USA",
+		icon: <FaMapMarkerAlt className="me-3 shrink-0" />,
+		name: "Thamel Marg, Kathmandu 44600, Nepal",
 	},
 	{
-		icon: <FaPhoneAlt className="me-3" />,
-		name: "+012 345 67890",
+		icon: <FaPhoneAlt className="me-3 shrink-0" />,
+		name: "+977 1234567890",
 	},
 	{
-		icon: <FaEnvelope className="me-3" />,
-		name: "info@example.com",
+		icon: <FaEnvelope className="me-3 shrink-0" />,
+		name: "stay@hotelix.com",
 	},
 ];
 
-export const contact = [
+/** Contact page cards */
+export const contactPageInfo = [
 	{
-		icon: <FaEnvelopeOpen className="text-primary me-2" />,
-		title: "Booking",
-		email: "book@example.com",
+		icon: <FaEnvelope className="text-2xl text-extra" />,
+		title: "Email us",
+		details: [
+			{ label: "Reservations", value: "stay@hotelix.com" },
+			{ label: "Events", value: "events@hotelix.com" },
+			{ label: "General", value: "hello@hotelix.com" },
+		],
 	},
 	{
-		icon: <FaEnvelopeOpen className="text-primary me-2" />,
-		title: "Technical",
-		email: "tech@example.com",
+		icon: <FaPhone className="text-2xl text-extra" />,
+		title: "Call us",
+		details: [
+			{ label: "Front desk", value: "+977 1234567890" },
+			{ label: "Restaurant", value: "+977 1234567891" },
+		],
 	},
 	{
-		icon: <FaEnvelopeOpen className="text-primary me-2" />,
-		title: "General",
-		email: "info@example.com",
+		icon: <FaMapMarkerAlt className="text-2xl text-extra" />,
+		title: "Location",
+		details: [
+			{ label: "Address", value: "Thamel Marg, Kathmandu 44600" },
+			{ label: "Airport", value: "~20 min from Tribhuvan International" },
+		],
+	},
+	{
+		icon: <FaClock className="text-2xl text-extra" />,
+		title: "Hours",
+		details: [
+			{ label: "Reception", value: "24 hours" },
+			{ label: "Restaurant", value: "6:30 AM – 10:30 PM" },
+			{ label: "Pool", value: "7:00 AM – 9:00 PM" },
+		],
 	},
 ];
-// export const testimonial = [
-// 	{
-// 		desc: "Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos",
-// 		name: "Client Name",
-// 		profession: "Profession",
-// 		icon: (
-// 			<FaQuoteRight
-// 				className="text-primary position-absolute end-0 bottom-0 me-4 mb-n1"
-// 				size={24}
-// 			/>
-// 		),
-// 		img: Testimonial1,
-// 	},
-// 	{
-// 		desc: "Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos",
-// 		name: "Client Name",
-// 		profession: "Profession",
-// 		icon: (
-// 			<FaQuoteRight
-// 				className="text-primary position-absolute end-0 bottom-0 me-4 mb-n1"
-// 				size={24}
-// 			/>
-// 		),
-// 		img: Testimonial2,
-// 	},
-// 	{
-// 		desc: "Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos",
-// 		name: "Client Name",
-// 		profession: "Profession",
-// 		icon: (
-// 			<FaQuoteRight
-// 				className="text-primary position-absolute end-0 bottom-0 me-4 mb-n1"
-// 				size={24}
-// 			/>
-// 		),
-// 		img: Testimonial3,
-// 	},
-// ];
 
 export const roomItems = [
 	{
 		img: Room1,
-		price: "$110/night",
-		name: "Junior Suite",
+		price: "From $95/night",
+		name: "Courtyard Queen",
 		star: <FaStar className="text-primary" />,
-		desc: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
-		btn1: "View Detail",
-		btn2: "book now",
+		desc: "Queen bed, courtyard outlook, workspace nook, and a walk-in shower—ideal for short city stays.",
+		btn1: "Details",
+		btn2: "Book",
 	},
-
 	{
 		img: Room2,
-		price: "$110/night",
-		name: "Executive Suite",
+		price: "From $125/night",
+		name: "Terrace Deluxe",
 		star: <FaStar className="text-primary" />,
-		desc: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
-		btn1: "View Detail",
-		btn2: "book now",
+		desc: "Extra space, a private terrace, and a sitting area—popular with couples and longer visits.",
+		btn1: "Details",
+		btn2: "Book",
 	},
 	{
 		img: Room3,
-		price: "$110/night",
-		name: "Deluxe Suite",
+		price: "From $155/night",
+		name: "Skyline Suite",
 		star: <FaStar className="text-primary" />,
-		desc: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
-		btn1: "View Detail",
-		btn2: "book now",
+		desc: "Separate living room, skyline views, and a soaking tub—our go-to for celebrations.",
+		btn1: "Details",
+		btn2: "Book",
 	},
 	{
 		img: Room2,
-		price: "$110/night",
-		name: "Premium Suite",
+		price: "From $135/night",
+		name: "Executive Twin",
 		star: <FaStar className="text-primary" />,
-		desc: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
-		btn1: "View Detail",
-		btn2: "book now",
+		desc: "Two full beds, ergonomic chairs, and fast Wi‑Fi—built for colleagues traveling together.",
+		btn1: "Details",
+		btn2: "Book",
 	},
 	{
 		img: Room1,
-		price: "$110/night",
-		name: "Premium Junior Suite",
+		price: "From $115/night",
+		name: "Garden Junior Suite",
 		star: <FaStar className="text-primary" />,
-		desc: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
-		btn1: "View Detail",
-		btn2: "book now",
+		desc: "Garden-level quiet, a small pantry, and easy access to the courtyard for morning coffee.",
+		btn1: "Details",
+		btn2: "Book",
 	},
 	{
 		img: Room3,
-		price: "$110/night",
+		price: "From $210/night",
 		name: "Presidential Suite",
 		star: <FaStar className="text-primary" />,
-		desc: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
-		btn1: "View Detail",
-		btn2: "book now",
+		desc: "Top floor, panoramic views, dining for six, and dedicated concierge coordination.",
+		btn1: "Details",
+		btn2: "Book",
 	},
 ];
 
 export const facility = [
 	{
 		icon: <FaBed className="text-extra me-2" />,
-		quantity: 3,
-		facility: "bed",
+		quantity: 2,
+		facility: "beds",
 	},
 	{
 		icon: <FaBath className="text-extra me-2" />,
-		quantity: 2,
+		quantity: 1,
 		facility: "bath",
 	},
 	{
 		icon: <FaWifi className="text-extra me-2" />,
-		facility: "Wifi",
+		facility: "Wi‑Fi",
 	},
 ];

@@ -3,52 +3,58 @@ import { facility } from "../constants/constant";
 
 const RoomCard = ({ img, name, star, desc, btn1, btn2, price }) => {
 	return (
-		<div className="flex flex-col xs:w-full md:w-[450px] xl:w-[360px] shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 rounded-md">
+		<article className="flex flex-col w-full max-w-md mx-auto bg-white rounded-2xl overflow-hidden shadow-card border border-slate-100/80 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
 			<div className="w-full relative">
 				<img
 					src={img}
-					alt="Room"
-					className="w-full h-[240px] object-cover rounded-t-lg"
+					alt={name}
+					className="w-full h-[240px] object-cover group-hover:scale-[1.03] transition-transform duration-500"
 				/>
-				<span className="absolute top-[93.5%] left-[20px] bg-dark px-2 py-1 rounded-md text-normal text-sm">{price}</span>
+				<span className="absolute bottom-4 left-4 bg-dark/90 backdrop-blur-sm px-3 py-1.5 rounded-lg text-normal text-sm font-semibold ring-1 ring-white/10">
+					{price}
+				</span>
 			</div>
-			<div className="xs:px-4 md:px-2">
-				<div className="p-4 mt-4 flex items-center justify-between">
-					<h2 className="text-xl">{name}</h2>
-					<p className="flex items-center">
-						{star}
-						{star}
-						{star}
-						{star}
-						{star}
-					</p>
-				</div>
-				<div className="px-4 py-2 flex items-center gap-4">
-					{facility.map((item, index) => (
-						<div
-							key={index}
-							className="flex items-center text-secondary mb-2"
-						>
-							{item.icon}
-							<span className="px-2 border-r-2 ">
-								{item.quantity} {item.facility}
-							</span>
-						</div>
-					))}
-				</div>
-				<div className="px-4">
-					<p className="text-secondary text-justify text-sm">{desc}</p>
-				</div>
-				<div className="px-4 py-8 flex items-center justify-between gap-8">
-					<button className=" uppercase w-full text-sm bg-extra hover:bg-dark text-normal hover:text-primary font-semibold p-2 rounded focus:outline-none focus:shadow-outline transition-all duration-300">
-						{btn1}
-					</button>
-					<button className="uppercase w-full hover:bg-primary bg-dark hover:text-normal text-normal text-sm font-semibold p-2 rounded focus:outline-none focus:shadow-outline transition-all duration-300">
-						{btn2}
-					</button>
-				</div>
+			<div className="px-5 pt-5 pb-2 flex items-start justify-between gap-3">
+				<h2 className="font-display text-xl text-dark">{name}</h2>
+				<p className="flex items-center shrink-0" aria-hidden>
+					{star}
+					{star}
+					{star}
+					{star}
+					{star}
+				</p>
 			</div>
-		</div>
+			<div className="px-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-secondary border-b border-slate-100 pb-4">
+				{facility.map((item, index) => (
+					<div
+						key={index}
+						className="flex items-center gap-1.5"
+					>
+						{item.icon}
+						<span className="border-r border-slate-200 pr-4 last:border-0 last:pr-0">
+							{item.quantity != null ? `${item.quantity} ${item.facility}` : item.facility}
+						</span>
+					</div>
+				))}
+			</div>
+			<div className="px-5 pt-3">
+				<p className="text-secondary text-sm leading-relaxed text-justify">{desc}</p>
+			</div>
+			<div className="px-5 py-6 flex items-stretch justify-between gap-3 mt-auto">
+				<button
+					type="button"
+					className="flex-1 text-sm uppercase tracking-wide bg-extra/10 hover:bg-extra/20 text-extra font-semibold py-3 rounded-xl transition-colors"
+				>
+					{btn1}
+				</button>
+				<button
+					type="button"
+					className="flex-1 text-sm uppercase tracking-wide bg-dark text-normal hover:bg-dark-elevated font-semibold py-3 rounded-xl transition-colors"
+				>
+					{btn2}
+				</button>
+			</div>
+		</article>
 	);
 };
 

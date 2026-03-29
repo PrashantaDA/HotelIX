@@ -2,20 +2,25 @@ import { socialIcons } from "../constants/constant";
 
 const SocialIcons = () => {
 	return (
-		<div>
-			{/* Social icons */}
-			<div className="flex items-center flex-col">
-				<ul className="flex gap-4 text-primary text-lg">
-					{socialIcons.map((icon) => (
-						<li
-							className="hover:text-normal transition-all cursor-pointer"
-							key={icon.id}
+		<div className="flex items-center justify-center">
+			<ul className="flex gap-5 text-primary text-xl">
+				{socialIcons.map((item) => (
+					<li
+						className="hover:text-normal hover:scale-110 transition-all"
+						key={item.id}
+					>
+						<a
+							href={item.href}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="inline-flex"
+							aria-label="Social profile"
 						>
-							{icon.icon}
-						</li>
-					))}
-				</ul>
-			</div>
+							{item.icon}
+						</a>
+					</li>
+				))}
+			</ul>
 		</div>
 	);
 };

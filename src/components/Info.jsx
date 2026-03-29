@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 const Info = ({ icon, text, count }) => {
 	return (
-		<div className="flex items-center flex-col justify-center border-8 border-secondary p-10 border-double">
-			<div>{icon}</div>
-			<h3 className="text-3xl font--semibold">{count}</h3>
-			<h5>{text}</h5>
+		<div className="flex flex-col items-center justify-center min-w-[140px] px-8 py-8 rounded-2xl bg-white border border-slate-100 shadow-soft hover:shadow-card hover:border-primary/25 transition-all duration-300">
+			<div className="mb-2">{icon}</div>
+			<h3 className="font-display text-3xl font-semibold text-dark">{count}</h3>
+			<h5 className="text-sm uppercase tracking-widest text-secondary mt-1 font-sans font-medium">{text}</h5>
 		</div>
 	);
 };
