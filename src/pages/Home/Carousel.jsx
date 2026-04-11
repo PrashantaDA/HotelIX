@@ -32,7 +32,7 @@ const Carousel = () => {
 							alt={"Carousel " + slide.id}
 							className="w-full h-[80dvh] min-h-[420px] object-cover"
 						/>
-						<div className="absolute bg-gradient-to-t from-dark/90 via-dark/50 to-dark/30 inset-0 flex flex-col items-center justify-center text-normal text-center px-4">
+						<div className="absolute bg-gradient-to-t from-dark/90 via-dark/70 to-dark/30 inset-0 flex flex-col items-center justify-center text-normal text-center px-4">
 							<div className="relative">
 								<motion.h2
 									initial={{ opacity: 0, y: -24 }}
@@ -51,7 +51,7 @@ const Carousel = () => {
 								className="text-3xl md:text-5xl font-display font-semibold md:my-6 my-4 max-w-4xl leading-tight"
 							>
 								<h1 className="md:my-2 drop-shadow-md">{slide.title1}</h1>
-								<h1 className="text-cyan-300">{slide.title2}</h1>
+								<h1 className="text-rose-400">{slide.title2}</h1>
 							</motion.div>
 
 							<div className="mt-6 md:mt-10 flex flex-wrap items-center justify-center gap-4 md:gap-6">
