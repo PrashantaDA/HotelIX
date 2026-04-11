@@ -51,7 +51,7 @@ const Carousel = () => {
 								className="text-3xl md:text-5xl font-display font-semibold md:my-6 my-4 max-w-4xl leading-tight"
 							>
 								<h1 className="md:my-2 drop-shadow-md">{slide.title1}</h1>
-								<h1 className="text-primary-muted">{slide.title2}</h1>
+								<h1 className="text-cyan-300">{slide.title2}</h1>
 							</motion.div>
 
 							<div className="mt-6 md:mt-10 flex flex-wrap items-center justify-center gap-4 md:gap-6">
