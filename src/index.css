@@ -18,6 +18,20 @@
   --gold-shimmer: #f0d78c;
 }
 
+.light {
+  --primary-color: #a67c3d;
+  --secondary-color: #a67c3d;
+  --background-color: #f8fafc;
+  --text-color: #1e293b;
+  --accent-color: #f1f5f9;
+  --surface-elevated: #ffffff;
+  --ring: #0d9488;
+  --dark-luxury: #f1f5f9;
+  --dark-surface: #f8fafc;
+  --gold-premium: #a67c3d;
+  --gold-shimmer: #b8954a;
+}
+
 @layer base {
   body {
     overflow-x: hidden;
@@ -26,18 +40,34 @@
     color: var(--text-color);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     font-family: "Fraunces", Georgia, serif;
     font-weight: 600;
     letter-spacing: -0.02em;
   }
+}
+
+/* Light mode background - HIGH PRIORITY overrides */
+.light {
+  background-color: #f8fafc !important;
+  color: #1e293b !important;
+}
+
+.light .bg-dark {
+  background-color: #f8fafc !important;
+}
+
+.light .bg-dark-surface,
+.light .bg-dark-elevated {
+  background-color: #ffffff !important;
+}
+
+.light .bg-dark\/90,
+.light .bg-dark\/95 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
 }
 
 /* Luxury dark theme backgrounds */
@@ -45,9 +75,19 @@
   background: linear-gradient(180deg, #0a0a0f 0%, #0d0d14 50%, #0a0a0f 100%);
 }
 
+.light .luxury-dark {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%, #ffffff 100%);
+}
+
 .luxury-card {
   background: linear-gradient(145deg, #141420 0%, #1a1a28 100%);
   border: 1px solid rgba(212, 168, 83, 0.1);
+}
+
+.light .luxury-card {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid rgba(166, 124, 61, 0.25);
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.08);
 }
 
 /* Gold shimmer border effect on hover */
@@ -74,14 +114,17 @@
 
 /* Contact hero */
 .contact-bg {
-  background: linear-gradient(120deg, rgba(10, 10, 15, 0.92) 0%, rgba(10, 10, 15, 0.65) 100%),
-    url("./assets/img/carousel-2.jpg") no-repeat center center;
+  background: linear-gradient(120deg, rgba(10, 10, 15, 0.92) 0%, rgba(10, 10, 15, 0.65) 100%), url("./assets/img/carousel-2.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.light .contact-bg {
+  background: linear-gradient(120deg, rgba(248, 250, 252, 0.95) 0%, rgba(248, 250, 252, 0.85) 100%), url("./assets/img/carousel-2.jpg") no-repeat center center;
   background-size: cover;
 }
 
 /* Decorative line (carousel) */
-.line::before,
-.line::after {
+.line::before, .line::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -90,13 +133,8 @@
   transition: opacity 0.3s ease;
 }
 
-.line::before {
-  left: -4.5rem;
-}
-
-.line::after {
-  right: -4.5rem;
-}
+.line::before { left: -4.5rem; }
+.line::after { right: -4.5rem; }
 
 /* Primary button - luxury dark */
 .btn-primary {
@@ -138,10 +176,20 @@
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.light .card {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid rgba(166, 124, 61, 0.2);
+}
+
 .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5), 0 0 30px rgba(212, 168, 83, 0.1);
   border-color: rgba(212, 168, 83, 0.2);
+}
+
+.light .card:hover {
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12), 0 0 30px rgba(166, 124, 61, 0.12);
+  border-color: rgba(166, 124, 61, 0.35);
 }
 
 /* Glassmorphism */
@@ -152,31 +200,24 @@
   border: 1px solid rgba(212, 168, 83, 0.1);
 }
 
+.light .glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(166, 124, 61, 0.2);
+}
+
 /* Responsive decorative line */
 @media (max-width: 1024px) {
-  .line::before,
-  .line::after {
-    width: 2rem;
-  }
-
-  .line::before {
-    left: -2.75rem;
-  }
-
-  .line::after {
-    right: -2.75rem;
-  }
+  .line::before, .line::after { width: 2rem; }
+  .line::before { left: -2.75rem; }
+  .line::after { right: -2.75rem; }
 }
 
 /* Enhanced scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0a0a0f;
-}
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #0a0a0f; }
+.light ::-webkit-scrollbar-track { background: #e2e8f0; }
 
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #d4a853, #8b7355);
@@ -184,25 +225,26 @@
   border: 2px solid #0a0a0f;
 }
 
+.light ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #a67c3d, #8b6914);
+  border: 2px solid #e2e8f0;
+}
+
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #e8c778, #d4a853);
 }
 
-/* Carousel (react-slick) dots on hero */
-.slick-dots {
-  bottom: 1.25rem !important;
+.light ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #b8954a, #a67c3d);
 }
 
-.slick-dots li button:before {
-  color: #f8fafc !important;
-  opacity: 0.45 !important;
-  font-size: 10px !important;
-}
+/* Carousel (react-slick) dots */
+.slick-dots { bottom: 1.25rem !important; }
+.slick-dots li button:before { color: #f8fafc !important; opacity: 0.45 !important; font-size: 10px !important; }
+.slick-dots li.slick-active button:before { color: #d4a853 !important; opacity: 1 !important; }
 
-.slick-dots li.slick-active button:before {
-  color: #d4a853 !important;
-  opacity: 1 !important;
-}
+.light .slick-dots li button:before { color: #1e293b !important; }
+.light .slick-dots li.slick-active button:before { color: #a67c3d !important; }
 
 /* Text gradient for headings */
 .text-gradient-gold {
@@ -212,11 +254,20 @@
   background-clip: text;
 }
 
+.light .text-gradient-gold {
+  background: linear-gradient(135deg, #b8954a 0%, #a67c3d 50%, #8b6914 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* Animated background pattern */
 .bg-luxury-pattern {
-  background-image:
-    radial-gradient(circle at 25% 25%, rgba(212, 168, 83, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(212, 168, 83, 0.02) 0%, transparent 50%);
+  background-image: radial-gradient(circle at 25% 25%, rgba(212, 168, 83, 0.03) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(212, 168, 83, 0.02) 0%, transparent 50%);
+}
+
+.light .bg-luxury-pattern {
+  background-image: radial-gradient(circle at 25% 25%, rgba(166, 124, 61, 0.06) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(166, 124, 61, 0.04) 0%, transparent 50%);
 }
 
 /* Stagger animation delays */
@@ -227,12 +278,15 @@
 .stagger-5 { animation-delay: 0.5s; }
 
 /* Focus states with gold glow */
-input:focus,
-select:focus,
-textarea:focus {
+input:focus, select:focus, textarea:focus {
   outline: none;
   border-color: rgba(212, 168, 83, 0.5);
   box-shadow: 0 0 0 3px rgba(212, 168, 83, 0.15);
+}
+
+.light input:focus, .light select:focus, .light textarea:focus {
+  border-color: rgba(166, 124, 61, 0.5);
+  box-shadow: 0 0 0 3px rgba(166, 124, 61, 0.15);
 }
 
 /* Button hover effects */
@@ -255,8 +309,148 @@ textarea:focus {
   transition: all 0.3s ease;
 }
 
+.light .btn-dark {
+  background: #ffffff;
+  color: #1e293b;
+  border: 1px solid rgba(166, 124, 61, 0.25);
+}
+
 .btn-dark:hover {
   background: #1a1a28;
   border-color: rgba(212, 168, 83, 0.4);
   box-shadow: 0 0 20px rgba(212, 168, 83, 0.2);
+}
+
+.light .btn-dark:hover {
+  background: #f8fafc;
+  border-color: rgba(166, 124, 61, 0.4);
+  box-shadow: 0 0 20px rgba(166, 124, 61, 0.15);
+}
+
+/* Light mode specific utilities */
+.light .text-normal { color: #1e293b; }
+.light .text-secondary { color: #475569; }
+.light .text-mutedfg { color: #64748b; }
+
+.light .border-white\/10 { border-color: rgba(166, 124, 61, 0.12); }
+.light .border-white\/20 { border-color: rgba(166, 124, 61, 0.2); }
+
+.light .bg-white\/5 { background-color: rgba(166, 124, 61, 0.06); }
+.light .bg-white\/10 { background-color: rgba(166, 124, 61, 0.1); }
+.light .hover\:bg-white\/10:hover { background-color: rgba(166, 124, 61, 0.14); }
+
+/* Light mode header */
+.light header, .light .sticky.top-0 {
+  background-color: rgba(255, 255, 255, 0.97) !important;
+  border-color: rgba(166, 124, 61, 0.15) !important;
+  box-shadow: 0 2px 12px -2px rgba(0, 0, 0, 0.06);
+}
+
+/* Light mode footer */
+.light footer {
+  background-color: #f1f5f9;
+  border-top: 1px solid rgba(166, 124, 61, 0.15);
+}
+
+.light footer h3, .light footer h4 {
+  color: #1e293b;
+}
+
+.light footer p, .light footer span, .light footer a {
+  color: #475569;
+}
+
+.light footer a:hover {
+  color: #a67c3d;
+}
+
+/* Light mode section backgrounds */
+.light section {
+  background-color: transparent;
+}
+
+/* Light mode PageHeader */
+.light .page-header-bg {
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.95) 0%, rgba(241, 245, 249, 0.9) 100%);
+}
+
+.light .page-header-bg::before {
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.3) 0%, transparent 50%);
+}
+
+/* Light mode cards and containers */
+.light .border-primary\/10 {
+  border-color: rgba(166, 124, 61, 0.15);
+}
+
+.light .border-primary\/20 {
+  border-color: rgba(166, 124, 61, 0.2);
+}
+
+.light .from-primary\/5 {
+  --tw-gradient-from: rgba(166, 124, 61, 0.08);
+}
+
+.light .bg-primary\/5 {
+  background-color: rgba(166, 124, 61, 0.06);
+}
+
+.light .bg-primary\/10 {
+  background-color: rgba(166, 124, 61, 0.1);
+}
+
+/* Light mode shadows */
+.light .shadow-soft {
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.08), 0 4px 16px -4px rgba(0, 0, 0, 0.06);
+}
+
+.light .shadow-card {
+  box-shadow: 0 4px 24px -8px rgba(0, 0, 0, 0.1);
+}
+
+/* Light mode hover states */
+.light .group:hover .group-hover\:text-normal {
+  color: #1e293b;
+}
+
+.light .text-primary\/30 {
+  color: rgba(166, 124, 61, 0.3);
+}
+
+.light .text-primary\/40 {
+  color: rgba(166, 124, 61, 0.4);
+}
+
+.light .text-primary\/60 {
+  color: rgba(166, 124, 61, 0.6);
+}
+
+/* Page header specific */
+.light .bg-dark\/80 {
+  background-color: rgba(248, 250, 252, 0.9);
+}
+
+/* Room cards and service cards in light mode */
+.light div[class*="bg-dark-surface"],
+.light [class*="bg-dark-elevated"] {
+  background-color: #ffffff !important;
+}
+
+/* Testimonials in light mode */
+.light .bg-dark-luxury {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+/* Input fields in light mode */
+.light input,
+.light textarea,
+.light select {
+  background-color: #ffffff;
+  border-color: rgba(166, 124, 61, 0.2);
+  color: #1e293b;
+}
+
+.light input::placeholder,
+.light textarea::placeholder {
+  color: #94a3b8;
 }

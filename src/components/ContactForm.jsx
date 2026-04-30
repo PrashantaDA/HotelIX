@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaPaperPlane, FaCheck, FaUser, FaEnvelope, FaPen, FaComment } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "../context/ThemeContext";
 
 const inputFocus = "focus:ring-2 focus:ring-primary/40 focus:border-primary/50";
 
@@ -14,6 +15,7 @@ const ContactForm = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const { theme } = useTheme();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -50,13 +52,15 @@ const ContactForm = () => {
     { name: "subject", label: "Subject", icon: FaPen, placeholder: "How can we help?", type: "text" },
   ];
 
+  const isDark = theme === "dark";
+
   return (
-    <div className="luxury-card rounded-2xl p-8 md:p-10 relative overflow-hidden">
+    <div className={`luxury-card dark:luxury-card light:luxury-card rounded-2xl p-8 md:p-10 relative overflow-hidden`}>
       {/* Decorative corners */}
-      <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-primary/30 rounded-tl-2xl" />
-      <div className="absolute top-0 right-0 w-20 h-20 border-t-2 border-r-2 border-primary/30 rounded-tr-2xl" />
-      <div className="absolute bottom-0 left-0 w-20 h-20 border-b-2 border-l-2 border-primary/30 rounded-bl-2xl" />
-      <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-primary/30 rounded-br-2xl" />
+      <div className={`absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-primary/30 ${isDark ? 'dark:border-primary/30' : 'light:border-gold/40'} rounded-tl-2xl`} />
+      <div className={`absolute top-0 right-0 w-20 h-20 border-t-2 border-r-2 border-primary/30 ${isDark ? 'dark:border-primary/30' : 'light:border-gold/40'} rounded-tr-2xl`} />
+      <div className={`absolute bottom-0 left-0 w-20 h-20 border-b-2 border-l-2 border-primary/30 ${isDark ? 'dark:border-primary/30' : 'light:border-gold/40'} rounded-bl-2xl`} />
+      <div className={`absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-primary/30 ${isDark ? 'dark:border-primary/30' : 'light:border-gold/40'} rounded-br-2xl`} />
 
       <AnimatePresence mode="wait">
         {submitSuccess ? (
@@ -73,19 +77,20 @@ const ContactForm = () => {
             >
               <FaCheck className="text-4xl text-primary" />
             </motion.div>
-            <h3 className="font-display text-2xl font-semibold text-normal mb-2">Message Sent!</h3>
-            <p className="text-secondary">We'll get back to you within 24 hours.</p>
+            <h3 className="font-display text-2xl font-semibold text-normal dark:text-normal light:text-dark-elevated mb-2">Message Sent!</h3>
+            <p className="text-secondary dark:text-secondary light:text-slate-600">We'll get back to you within 24 hours.</p>
           </motion.div>
         ) : (
           <motion.form
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            onSubmit={handleSubmit} className="space-y-6"
+            onSubmit={handleSubmit}
+            className="space-y-6"
           >
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {inputFields.map((field) => (
                 <div key={field.name}>
-                  <label className="block text-sm font-medium text-normal mb-2 flex items-center gap-2">
+                  <label className={`block text-sm font-medium text-normal dark:text-normal light:text-dark-elevated mb-2 flex items-center gap-2`}>
                     <field.icon className="text-primary text-xs" />
                     {field.label}
                   </label>
@@ -96,7 +101,7 @@ const ContactForm = () => {
                       value={formData[field.name]}
                       onChange={handleChange}
                       placeholder={field.placeholder}
-                      className={`w-full pl-4 pr-4 py-3 rounded-xl border bg-dark-surface ${errors[field.name] ? "border-red-400" : "border-primary/20"} ${inputFocus} transition-all duration-200 text-normal placeholder:text-secondary/30`}
+                      className={`w-full pl-4 pr-4 py-3 rounded-xl border ${errors[field.name] ? "border-red-400" : "border-primary/20 dark:border-primary/20 light:border-gold/30"} ${inputFocus} transition-all duration-200 ${isDark ? 'bg-dark-surface' : 'bg-white'} ${isDark ? 'text-normal' : 'text-dark-elevated'} placeholder:${isDark ? 'text-secondary/30' : 'text-slate-400'}`}
                     />
                     {errors[field.name] && (
                       <p className="mt-1 text-xs text-red-400">{errors[field.name]}</p>
@@ -107,7 +112,7 @@ const ContactForm = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-normal mb-2 flex items-center gap-2">
+              <label className={`block text-sm font-medium text-normal dark:text-normal light:text-dark-elevated mb-2 flex items-center gap-2`}>
                 <FaComment className="text-primary text-xs" />
                 Your Message
               </label>
@@ -117,7 +122,7 @@ const ContactForm = () => {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Tell us what's on your mind..."
-                className={`w-full px-4 py-3 rounded-xl border bg-dark-surface resize-none ${errors.message ? "border-red-400" : "border-primary/20"} ${inputFocus} transition-all duration-200 text-normal placeholder:text-secondary/30`}
+                className={`w-full px-4 py-3 rounded-xl border resize-none ${errors.message ? "border-red-400" : "border-primary/20 dark:border-primary/20 light:border-gold/30"} ${inputFocus} transition-all duration-200 ${isDark ? 'bg-dark-surface' : 'bg-white'} ${isDark ? 'text-normal' : 'text-dark-elevated'} placeholder:${isDark ? 'text-secondary/30' : 'text-slate-400'}`}
               />
               {errors.message && <p className="mt-1 text-xs text-red-400">{errors.message}</p>}
             </div>
