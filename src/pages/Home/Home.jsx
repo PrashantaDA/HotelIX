@@ -7,22 +7,25 @@ import About from "./About";
 import OurRooms from "./OurRooms";
 import OurServices from "./OurServices";
 import OurTeam from "./OurTeam";
+import Testimonials from "../../components/Testimonials";
 import { useEffect } from "react";
 
 const Home = () => {
-	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, []);
-	return (
-		<>
-			<Carousel />
-			<BookingDetails />
-			<About />
-			<OurRooms />
-			<OurServices />
-			<OurTeam />
-		</>
-	);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <>
+      <Carousel />
+      <BookingDetails />
+      <About />
+      <OurRooms />
+      <OurServices />
+      <Testimonials />
+      <OurTeam />
+    </>
+  );
 };
 
 export default Home;
